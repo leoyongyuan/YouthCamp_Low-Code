@@ -15,14 +15,6 @@ npm run dev
 npm run build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 ### 学习项目
 
 https://github.com/woai3c/visual-drag-demo
