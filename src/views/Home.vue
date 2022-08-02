@@ -22,6 +22,7 @@
             </section>
             <!-- 右侧属性列表 -->
             <section class="right">
+                <!-- 点击需要编辑的组件时右边出现的编辑组件 -->
                 <el-tabs v-if="curComponent" v-model="activeName">
                     <el-tab-pane label="属性" name="attr">
                         <component :is="curComponent.component + 'Attr'" />

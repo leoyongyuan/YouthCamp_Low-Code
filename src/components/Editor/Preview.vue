@@ -2,6 +2,7 @@
     <div v-if="show" ref="container" class="bg">
         <el-button v-if="!isScreenshot" class="close" @click="close">关闭</el-button>
         <el-button v-else class="close" @click="htmlToImage">确定</el-button>
+        <el-button class="send" @click="send">发布</el-button>
         <div class="canvas-container">
             <div
                 class="canvas"
@@ -57,6 +58,10 @@ export default {
             this.$emit('change', false)
         },
 
+        send() {
+            this.$message.warning('开发中...')
+        },
+
         htmlToImage() {
             toPng(this.$refs.container.querySelector('.canvas'))
             .then(dataUrl => {
@@ -104,6 +109,12 @@ export default {
     .close {
         position: absolute;
         right: 20px;
+        top: 20px;
+    }
+
+    .send {
+        position: absolute;
+        right: 100px;
         top: 20px;
     }
 }
