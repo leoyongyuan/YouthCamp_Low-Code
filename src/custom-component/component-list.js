@@ -64,6 +64,7 @@ const list = [
         icon: 'tupian',
         propValue: {
             url: require('@/assets/title.jpg'),
+            // url: '../assets/title.jpg',
             flip: {
                 horizontal: false,
                 vertical: false,
@@ -195,6 +196,69 @@ const list = [
             textAlign: 'center',
             color: '',
             backgroundColor: 'rgba(255, 255, 255, 1)',
+        },
+    },
+    {
+        component: 'VLink',
+        label: '链接',
+        propValue: {
+            text: '添加链接',
+            link: '',
+        },
+        icon: 'el-icon-link',
+        style: {
+            width: 200,
+            height: 28,
+            fontSize: 14,
+            fontWeight: 400,
+            lineHeight: '',
+            letterSpacing: 0,
+            textAlign: 'center',
+            color: '',
+        },
+    },
+    {
+        component: 'Vactivity',
+        label: '公告',
+        propValue: {
+            text: '活动',
+            starttime: '',
+            endtime: '',
+            diff: 0,
+        },
+        icon: 'el-icon-data-board',
+        style: {
+            width: 360,
+            height: 40,
+            fontSize: 14,
+            fontWeight: 400,
+            lineHeight: '3',
+            letterSpacing: 0,
+            textAlign: 'center',
+            color: '',
+            borderColor: '#000',
+            borderWidth: 1,
+            backgroundColor: 'rgba(0, 255, 229, 1)',
+            borderStyle: 'solid',
+            borderRadius: '',
+            verticalAlign: 'middle',
+        },
+    },
+    {
+        component: 'Video',
+        label: '视频',
+        icon: 'el-icon-video-camera',
+        propValue: {
+            url: require('@/assets/video1.mp4'),
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            width: 400,
+            height: 200,
+            borderRadius: '',
         },
     },
 ]
