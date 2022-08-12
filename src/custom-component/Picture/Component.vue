@@ -1,5 +1,5 @@
 <template>
-    <div style="overflow: hidden;">
+    <div>
         <canvas ref="canvas"></canvas>
     </div>
 </template>
@@ -40,6 +40,9 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
+        'propValue.url': function () {
+            this.drawImage()
+        },
     },
     mounted() {
         this.canvas = this.$refs.canvas
@@ -52,7 +55,7 @@ export default {
             this.canvas.width = width
             this.canvas.height = height
             if (this.isFirst) {
-                this.isFirst = false
+                this.isFirst = true
                 this.img = document.createElement('img')
                 this.img.src = this.propValue.url
                 this.img.onload = () => {
