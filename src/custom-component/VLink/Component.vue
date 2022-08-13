@@ -24,7 +24,12 @@
         ></el-link>
     </div>
     <div v-else class="v-text preview">
-        <div :style="{ verticalAlign: element.style.verticalAlign }" v-html="element.propValue.text"></div>
+        <el-link 
+            type="primary" 
+            :style="{ verticalAlign: element.style.verticalAlign }" 
+            v-html="element.propValue.text" 
+            @click="openLink"
+        ></el-link>
     </div>
 </template>
 
