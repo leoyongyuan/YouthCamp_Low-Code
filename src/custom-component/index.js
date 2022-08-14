@@ -9,6 +9,9 @@ const components = [
     'RectShape',
     'LineShape',
     'VTable',
+    'VLink',
+    'Vactivity',
+    'Video',
 ]
 
 components.forEach(key => {
