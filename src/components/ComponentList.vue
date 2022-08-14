@@ -33,7 +33,7 @@ export default {
 <style lang="scss" scoped>
 .component-list {
     height: 65%;
-    padding: 10px;
+    padding: 5px 5px 10px 10px;
     display: grid;
     grid-gap: 10px 19px;
     grid-template-columns: repeat(auto-fill, 80px);
