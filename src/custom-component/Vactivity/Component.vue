@@ -141,6 +141,7 @@ export default {
     height: 30px;
     display: inline;
 }
+
 p {
     display: inline-block;
     background-color: #1366db;

@@ -77,6 +77,7 @@ export default {
     padding-top: 0;
     height: 100%;
 }
+
 .avatar {
     position: relative;
     display: block;
@@ -84,12 +85,13 @@ export default {
     width: 100%;
     height: 34px;
     line-height: 34px;
-    border: 1px solid #99D3F5;
+    border: 1px solid #99d3f5;
     border-radius: 4px;
     text-align: center;
-    background: #D0EEFF;
+    background: #d0eeff;
     cursor: pointer;
 }
+
 .avatar input {
     display: inline-block;
     // 设置input绝对定位，后面的文字才能往上移动
