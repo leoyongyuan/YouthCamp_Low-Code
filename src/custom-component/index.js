@@ -12,6 +12,8 @@ const components = [
     'VLink',
     'Vactivity',
     'Video',
+    'Vboard',
+    'VChart',
 ]
 
 components.forEach(key => {
