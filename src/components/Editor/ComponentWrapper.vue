@@ -39,6 +39,7 @@ export default {
         },
     },
     mounted() {
+        console.log(this.$refs, this.config, '123')
         runAnimation(this.$refs.component.$el, this.config.animations)
     },
     methods: {
