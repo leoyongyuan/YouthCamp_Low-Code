@@ -36,6 +36,7 @@ export default {
     },
     methods: {
         handleDragStart(e) {
+            console.log(e.dataTransfer)
             e.dataTransfer.setData('index', e.target.dataset.index)
         },
     },
@@ -48,7 +49,7 @@ export default {
     }
 .component-list {
     height: 65%;
-    padding: 10px;
+    padding: 5px 5px 10px 10px;
     display: grid;
     grid-gap: 10px 19px;
     grid-template-columns: repeat(auto-fill, 80px);

@@ -13,6 +13,8 @@ export const commonAttr = {
 
 // 编辑器左侧组件列表
 const list = [
+
+    // 文本框组件
     {
         component: 'VText',
         label: '文字',
@@ -38,6 +40,8 @@ const list = [
             color: '',
         },
     },
+
+    // 按钮组件
     {
         component: 'VButton',
         label: '按钮',
@@ -58,6 +62,8 @@ const list = [
             backgroundColor: '',
         },
     },
+
+    // 图片组件
     {
         component: 'Picture',
         label: '图片',
@@ -76,6 +82,8 @@ const list = [
             borderRadius: '',
         },
     },
+
+    // 矩形组件
     {
         component: 'RectShape',
         label: '矩形',
@@ -98,6 +106,8 @@ const list = [
             verticalAlign: 'middle',
         },
     },
+
+    // 直线组件
     {
         component: 'LineShape',
         label: '直线',
@@ -109,6 +119,8 @@ const list = [
             backgroundColor: '#000',
         },
     },
+
+    // 圆形组件
     {
         component: 'CircleShape',
         label: '圆形',
@@ -131,6 +143,8 @@ const list = [
             verticalAlign: 'middle',
         },
     },
+
+    // 星形组件
     {
         component: 'SVGStar',
         label: '星形',
@@ -149,6 +163,8 @@ const list = [
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
     },
+
+    // 三角形组件
     {
         component: 'SVGTriangle',
         label: '三角形',
@@ -167,6 +183,8 @@ const list = [
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
     },
+
+    // 表格组件
     {
         component: 'VTable',
         label: '表格',
@@ -198,6 +216,8 @@ const list = [
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
     },
+
+    // 链接组件
     {
         component: 'VLink',
         label: '链接',
@@ -217,6 +237,8 @@ const list = [
             color: '',
         },
     },
+
+    // 公告组件
     {
         component: 'Vactivity',
         label: '公告',
@@ -244,6 +266,8 @@ const list = [
             verticalAlign: 'middle',
         },
     },
+
+    // 视频组件
     {
         component: 'Video',
         label: '视频',

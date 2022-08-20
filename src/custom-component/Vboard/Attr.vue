@@ -47,6 +47,7 @@ import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
     components: { CommonAttr },
+
     computed: {
         styleKeys() {
             if (this.curComponent) {
@@ -110,6 +111,7 @@ export default {
     .orange{background: orange;color: white;}
     .green{background: green;color: white;}
     .blue{background: blueviolet;color: white;}
+
     .cursor1{cursor: require('@/assets/ico/black.ico') 8 20,auto;}
     .cursor2{cursor: require('@/assets/ico/red.ico') 8 20,auto;}
     .cursor3{cursor: require('@/assets/ico/orange.ico') 8 20,auto;}

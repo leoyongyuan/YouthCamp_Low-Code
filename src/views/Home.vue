@@ -8,6 +8,7 @@
                 <ComponentList />
                 <RealTimeComponentList />
             </section>
+            
             <!-- 中间画布 -->
             <section class="center">
                 <div
@@ -20,6 +21,7 @@
                     <Editor />
                 </div>
             </section>
+
             <!-- 右侧属性列表 -->
             <section class="right">
                 <!-- 点击需要编辑的组件时右边出现的编辑组件 -->

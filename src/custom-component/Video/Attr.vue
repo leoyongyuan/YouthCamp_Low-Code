@@ -21,6 +21,7 @@ import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
     components: { CommonAttr },
+
     data() {
         return {
             optionMap,
@@ -68,6 +69,7 @@ export default {
     padding-top: 0;
     height: 100%;
 }
+
 .avatar {
     position: relative;
     display: block;
@@ -82,6 +84,7 @@ export default {
     color: white;
     cursor: pointer;
 }
+
 .avatar input {
     display: inline-block;
     // 设置input绝对定位，后面的文字才能往上移动

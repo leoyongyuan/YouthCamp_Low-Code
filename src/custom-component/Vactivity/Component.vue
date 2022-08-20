@@ -145,6 +145,7 @@ p {
     display: inline-block;
     // background-color: #1366db;
     border-radius: 2px;
+
     font-size: 13px;
     line-height: 26px;
     width: 25px;

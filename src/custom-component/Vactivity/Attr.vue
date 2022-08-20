@@ -8,7 +8,7 @@
             <el-form-item label="开始时间">
                 <div class="block">
                     <el-date-picker
-                        
+
                         v-model="value1"
                         type="date"
                         placeholder="选择日期"
@@ -26,6 +26,7 @@
                     </el-date-picker>
                 </div>
             </el-form-item>
+
         </el-form>
     </div>
 </template>
@@ -36,6 +37,7 @@ import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
     components: { CommonAttr },
+
     data() {
         return {
             optionMap,

@@ -2,6 +2,7 @@
     <div class="attr-list">
         <CommonAttr></CommonAttr>
         <el-form>
+
             <el-form-item label="内容">
                 <el-input v-model="curComponent.propValue.text" type="textarea" />
             </el-form-item>
@@ -18,6 +19,7 @@ import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
     components: { CommonAttr },
+
     data() {
         return {
             optionMap,
