@@ -1,22 +1,11 @@
 <template>
     <div class="attr-list">
+        <CommonAttr></CommonAttr>
         <el-form>
-            <el-form-item v-for="({ key,label }, index) in styleKeys" :key="index" :label="label">
-                <el-color-picker v-if="isIncludesColor(key)" v-model="curComponent.style[key]" show-alpha></el-color-picker>
-                <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
-                    <el-option
-                        v-for="item in optionMap[key]"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                    ></el-option>
-                </el-select>
-                <el-input v-else v-model.number="curComponent.style[key]" type="number" />
-            </el-form-item>
             <el-form-item label="添加视频">
-                <div class="avatar">
+                <div class="avatar el-icon-upload el-icon--right">
                     <input
-                        class="upload"
+                        class="upload "
                         type="file"
                         @change="getObjectURL">
                     上传视频
@@ -28,8 +17,11 @@
 
 <script>
 import { styleData, textAlignOptions, borderStyleOptions, verticalAlignOptions, selectKey, optionMap } from '@/utils/attr'
+import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
+    components: { CommonAttr },
+
     data() {
         return {
             optionMap,
@@ -85,10 +77,11 @@ export default {
     width: 100%;
     height: 34px;
     line-height: 34px;
-    border: 1px solid #99d3f5;
+    border: 1px solid #99D3F5;
     border-radius: 4px;
     text-align: center;
-    background: #d0eeff;
+    background: #409eff;
+    color: white;
     cursor: pointer;
 }
 

@@ -1,18 +1,8 @@
 <template>
     <div class="attr-list">
+        <CommonAttr></CommonAttr>
         <el-form>
-            <el-form-item v-for="({ key,label }, index) in styleKeys" :key="index" :label="label">
-                <el-color-picker v-if="isIncludesColor(key)" v-model="curComponent.style[key]" show-alpha></el-color-picker>
-                <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
-                    <el-option
-                        v-for="item in optionMap[key]"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                    ></el-option>
-                </el-select>
-                <el-input v-else v-model.number="curComponent.style[key]" type="number" />
-            </el-form-item>
+
             <el-form-item label="内容">
                 <el-input v-model="curComponent.propValue.text" type="textarea" />
             </el-form-item>
@@ -25,8 +15,11 @@
 
 <script>
 import { styleData, textAlignOptions, borderStyleOptions, verticalAlignOptions, selectKey, optionMap } from '@/utils/attr'
+import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
+    components: { CommonAttr },
+
     data() {
         return {
             optionMap,

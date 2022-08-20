@@ -1,34 +1,53 @@
 <template>
     <div class="attr-list">
+        <CommonAttr></CommonAttr>
         <el-form>
-            <el-row>
-                <el-button
-                    icon="el-icon-brush" 
-                    circle
-                    @click="Eraser"
-                ></el-button>
-                <el-button
-                    icon="el-icon-delete-solid" 
-                    circle
-                    @click="Clear"
-                ></el-button>
-            </el-row>
-            <el-row v-for="(item, index) in curComponent.propValue.colors" :key="index">
-                <el-button
-                    :id="item"
-                    :class="item"
-                    class="colors"
-                    icon="el-icon-edit" 
-                    circle
-                    @click="selectcolor(item)"
-                ></el-button>
-            </el-row>
+            <el-form-item label="工具">
+                <div style="width:100%;margin-top:40px">
+                    <el-button 
+                        style="padding:10px"
+                        @click="Eraser" 
+                        type="primary" 
+                        icon="el-icon-search">橡皮
+                    </el-button>
+                    <el-button 
+                        style="padding:10px"
+                        @click="Clear" 
+                        type="danger" 
+                        icon="el-icon-search">清空
+                    </el-button>
+                </div>
+                
+            </el-form-item>
+            <el-form-item label="画笔颜色">
+                <div
+                    style="margin-top:40px"
+                  
+                >
+                    <el-button 
+                        v-for="(item, index) in curComponent.propValue.colors" 
+                        :key="index"
+                        :id="item"
+                        :class="item"
+                        class="colors"
+                        icon="el-icon-edit" 
+                        style="float:left"
+                        circle
+                        @click="selectcolor(item)"
+                    ></el-button>
+                </div>
+                
+            </el-form-item>
         </el-form>
     </div>
 </template>
 
 <script>
+import CommonAttr from '@/custom-component/common/CommonAttr.vue'
+
 export default {
+    components: { CommonAttr },
+
     computed: {
         styleKeys() {
             if (this.curComponent) {
@@ -87,11 +106,12 @@ export default {
         display: block;
         margin:5px;
     }
-    .black{background: black}
-    .red{background: red}
-    .orange{background: orange}
-    .green{background: green}
-    .blue{background: blueviolet}
+    .black{background: black;color:white ;}
+    .red{background: red;color: white;}
+    .orange{background: orange;color: white;}
+    .green{background: green;color: white;}
+    .blue{background: blueviolet;color: white;}
+
     .cursor1{cursor: require('@/assets/ico/black.ico') 8 20,auto;}
     .cursor2{cursor: require('@/assets/ico/red.ico') 8 20,auto;}
     .cursor3{cursor: require('@/assets/ico/orange.ico') 8 20,auto;}

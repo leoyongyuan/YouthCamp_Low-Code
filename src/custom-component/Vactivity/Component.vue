@@ -141,12 +141,11 @@ export default {
     height: 30px;
     display: inline;
 }
-
 p {
     display: inline-block;
-    background-color: #1366db;
+    // background-color: #1366db;
     border-radius: 2px;
-    color: white;
+
     font-size: 13px;
     line-height: 26px;
     width: 25px;

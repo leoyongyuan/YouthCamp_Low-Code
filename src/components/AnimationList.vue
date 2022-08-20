@@ -18,8 +18,9 @@
 
         <!-- 选择动画 -->
         <Modal v-model="isShowAnimation">
-            <el-tabs v-model="animationActiveName">
-                <el-tab-pane
+            <el-tabs v-model="animationActiveName" stretch>
+                <el-tab-pane 
+                    style="margin-top:20px"
                     v-for="item in animationClassData"
                     :key="item.label"
                     :label="item.label"
@@ -138,7 +139,6 @@ export default {
         display: flex;
         align-items: center;
         flex-wrap: wrap;
-        padding-left: 10px;
 
         .animate {
             cursor: pointer;

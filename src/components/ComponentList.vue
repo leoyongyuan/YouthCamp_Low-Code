@@ -7,8 +7,20 @@
             draggable
             :data-index="index"
         >
-            <span v-if="item.icon.substr(0,2) != 'el'" class="iconfont" :class="'icon-' + item.icon"></span>
-            <span v-else :class="item.icon"></span>
+            <!-- <el-popover   
+                placement="top-start" 
+                :title="item.label" 
+                width="200" 
+                trigger="hover"> -->
+            <el-tooltip 
+                class="item" 
+                effect="dark" 
+                :content="item.label" 
+                placement="top-start">    
+                <span v-if="item.icon.substr(0,2) != 'el'" class="iconfont" :class="'icon-' + item.icon"></span>
+                <span v-else :class="item.icon"></span>
+                <!-- </el-popover> -->
+            </el-tooltip>
         </div>
     </div>
 </template>
@@ -32,6 +44,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+  .item {
+      margin: 4px;
+    }
 .component-list {
     height: 65%;
     padding: 5px 5px 10px 10px;

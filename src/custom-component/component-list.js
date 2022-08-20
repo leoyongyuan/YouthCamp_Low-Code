@@ -260,7 +260,7 @@ const list = [
             color: '',
             borderColor: '#000',
             borderWidth: 1,
-            backgroundColor: 'rgba(0, 255, 229, 1)',
+            backgroundColor: 'rgb(255, 255, 255)',
             borderStyle: 'solid',
             borderRadius: '',
             verticalAlign: 'middle',
