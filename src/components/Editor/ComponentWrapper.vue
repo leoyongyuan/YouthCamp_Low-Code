@@ -8,7 +8,7 @@
             :style="getSVGStyle(config.style)"
             :prop-value="config.propValue"
             :element="config"
-            :request="item.request"
+            :request="config.request"
         />
 
         <component
