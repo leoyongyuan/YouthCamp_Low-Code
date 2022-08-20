@@ -41,7 +41,7 @@ export default {
     z-index: 1001;
 
     .modal {
-        width: 400px;
+        width: 500px;
         background: #fff;
         height: 100%;
     }
