@@ -1,15 +1,18 @@
 <template>
-    <div>
+    <div style="overflow: hidden;">
         <canvas ref="canvas"></canvas>
     </div>
 </template>
 
 <script>
+import OnEvent from '../common/OnEvent'
+
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: Object,
-            require: true,
+            required: true,
             default: () => {},
         },
         element: {
@@ -40,9 +43,6 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
-        'propValue.url': function () {
-            this.drawImage()
-        },
     },
     mounted() {
         this.canvas = this.$refs.canvas
@@ -55,7 +55,7 @@ export default {
             this.canvas.width = width
             this.canvas.height = height
             if (this.isFirst) {
-                this.isFirst = true
+                this.isFirst = false
                 this.img = document.createElement('img')
                 this.img.src = this.propValue.url
                 this.img.onload = () => {
