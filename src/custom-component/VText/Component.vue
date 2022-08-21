@@ -10,8 +10,8 @@
         <div
             ref="text"
             :contenteditable="canEdit"
-            :class="{ canEdit }"
-            :tabindex="element.id"
+            :class="{ 'can-edit': canEdit }"
+            tabindex="0"
             :style="{ verticalAlign: element.style.verticalAlign }"
             @dblclick="setEdit"
             @paste="clearStyle"
@@ -30,12 +30,14 @@
 import { mapState } from 'vuex'
 import { keycodes } from '@/utils/shortcutKey.js'
 import request from '@/utils/request'
+import OnEvent from '../common/OnEvent'
 
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: String,
-            require: true,
+            required: true,
             default: '',
         },
         request: {
@@ -43,6 +45,10 @@ export default {
             default: () => {},
         },
         element: {
+            type: Object,
+            default: () => {},
+        },
+        linkage: {
             type: Object,
             default: () => {},
         },
@@ -162,7 +168,7 @@ export default {
         padding: 4px;
     }
 
-    .canEdit {
+    .can-edit {
         cursor: text;
         height: 100%;
     }

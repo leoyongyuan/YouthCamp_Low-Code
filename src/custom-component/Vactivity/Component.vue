@@ -29,8 +29,10 @@
 <script>
 import { mapState } from 'vuex'
 import moment from 'moment'
+import OnEvent from '../common/OnEvent'
 
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: Object,
