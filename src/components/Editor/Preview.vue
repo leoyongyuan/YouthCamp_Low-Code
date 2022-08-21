@@ -59,7 +59,12 @@ export default {
         },
 
         send() {
-            this.$message.warning('开发中...')
+            console.log(this.componentData)
+            if (this.componentData.length > 0) {
+                this.$router.push('/publish')
+            } else {
+                alert('发布需要有内容！')
+            }
         },
 
         htmlToImage() {
@@ -76,6 +81,7 @@ export default {
             .finally(this.close)
         },
     },
+    
 }
 </script>
 

@@ -16,7 +16,7 @@
 
         <!-- 选择事件 -->
         <Modal v-model="isShowEvent">
-            <el-tabs v-model="eventActiveName">
+            <el-tabs v-model="eventActiveName" stretch>
                 <el-tab-pane
                     v-for="item in eventList"
                     :key="item.key"
@@ -24,21 +24,26 @@
                     :name="item.key"
                     style="padding: 0 20px;"
                 >
-                    <el-input
-                        v-if="item.key == 'redirect'"
-                        v-model="item.param"
-                        type="textarea"
-                        placeholder="请输入完整的 URL"
-                        @keydown.native.stop
+                    <Redirect
+                        v-if="item.key === 'redirect'"
+                        :event="item.key"
+                        v-model="isShowEvent"
                     />
-                    <el-input
-                        v-if="item.key == 'alert'"
-                        v-model="item.param"
-                        type="textarea"
-                        placeholder="请输入要 alert 的内容"
-                        @keydown.native.stop
+                    <Alert
+                        v-if="item.key === 'alert'"
+                        :event="item.key"
+                        v-model="isShowEvent"
                     />
-                    <el-button style="margin-top: 20px;" @click="addEvent(item.key, item.param)">确定</el-button>
+                    <Warn
+                        v-if="item.key === 'warn'"
+                        :event="item.key"
+                        v-model="isShowEvent"
+                    />
+                    <Notification
+                        v-if="item.key === 'Notification'"
+                        :event="item.key"
+                        v-model="isShowEvent"
+                    />
                 </el-tab-pane>
             </el-tabs>
         </Modal>
@@ -49,9 +54,13 @@
 import { mapState } from 'vuex'
 import Modal from '@/components/Modal'
 import { eventList } from '@/utils/events'
+import Redirect from '../events/redirect.vue'
+import Warn from '../events/warn.vue'
+import Alert from '../events/alert.vue'
+import Notification from '../events/Notification.vue'
 
 export default {
-    components: { Modal },
+    components: { Modal, Notification, Warn, Alert, Redirect },
     data() {
         return {
             isShowEvent: false,
@@ -77,12 +86,16 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.el-tabs__nav-scroll {
+    padding-right: 20px;
+}
 .event-list {
     .div-events {
         text-align: center;
         padding: 0 20px;
 
         .el-button {
+            width: 140px;
             display: inline-block;
             margin-bottom: 10px;
         }

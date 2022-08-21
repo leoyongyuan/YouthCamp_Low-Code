@@ -8,6 +8,7 @@
                 <ComponentList />
                 <RealTimeComponentList />
             </section>
+            
             <!-- 中间画布 -->
             <section class="center">
                 <div
@@ -20,11 +21,15 @@
                     <Editor />
                 </div>
             </section>
+
             <!-- 右侧属性列表 -->
             <section class="right">
                 <!-- 点击需要编辑的组件时右边出现的编辑组件 -->
-                <el-tabs v-if="curComponent" v-model="activeName">
-                    <el-tab-pane label="属性" name="attr">
+                <el-tabs
+                    v-if="curComponent" 
+                    v-model="activeName" 
+                    stretch >
+                    <el-tab-pane label="属性" name="attr" style="padding-top: 20px;">
                         <component :is="curComponent.component + 'Attr'" />
                     </el-tab-pane>
                     <el-tab-pane label="动画" name="animation" style="padding-top: 20px;">
@@ -137,7 +142,11 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
+ .el-tabs__nav-scroll {
+               padding: 0px;
+               margin: 50px;
+        }
 .home {
     height: 100vh;
     background: #fff;
@@ -168,7 +177,6 @@ export default {
             width: 288px;
             right: 0;
             top: 0;
-
             .el-select {
                 width: 100%;
             }

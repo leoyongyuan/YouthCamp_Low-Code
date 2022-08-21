@@ -1,15 +1,33 @@
 // 编辑器自定义事件
+import { Message, Notification } from 'element-ui'
+
 const events = {
-    redirect(url) {
-        if (url) {
-            window.location.href = url
+    redirect(param) {
+        if (param.url) {
+            window.location.href = param.url
         }
     },
 
-    alert(msg) {
-        if (msg) {
-            alert(msg)
+    alert(param) {
+        if (param.content) {
+            alert(param.content)
         }
+    },
+
+    warn(param) {
+        Message({ 
+            message: param.content,
+            type: param.type,
+        })
+    },
+
+    Notification(param) {
+        Notification({ 
+            message: param.content,
+            title: param.title,
+            type: param.type,
+            position: param.position, 
+        })
     },
 }
 
@@ -28,6 +46,18 @@ const eventList = [
         key: 'alert',
         label: 'alert 事件',
         event: events.alert,
+        param: '',
+    },
+    {
+        key: 'warn',
+        label: '提醒',
+        event: events.warn,
+        param: '',
+    },
+    {
+        key: 'Notification',
+        label: '通知',
+        event: events.Notification,
         param: '',
     },
 ]

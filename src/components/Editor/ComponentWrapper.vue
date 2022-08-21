@@ -8,8 +8,7 @@
             :style="getSVGStyle(config.style)"
             :prop-value="config.propValue"
             :element="config"
-            :request="config.request"
-            :linkage="config.linkage"
+            :request="item.request"
         />
 
         <component
@@ -42,6 +41,7 @@ export default {
         },
     },
     mounted() {
+        console.log(this.$refs, this.config, '123')
         runAnimation(this.$refs.component.$el, this.config.animations)
     },
     methods: {
