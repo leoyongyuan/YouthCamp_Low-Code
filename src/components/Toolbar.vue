@@ -33,7 +33,7 @@
             </div>
             <div class="canvas-config">
                 <span>画布比例</span>
-                <input style="margin-left:5px" v-model="scale" @input="handleScaleChange"> %
+                <input style="margin-left: 5px;" v-model="scale" @input="handleScaleChange"> %
             </div>
             <el-popover
                 placement="bottom-start"
@@ -264,18 +264,20 @@ export default {
 
 <style lang="scss" scoped>
 .shortcut{
-        display: inline-block;
-        margin-left: 10px;
-        font-size: 14px;
-        color: #606266;
-         span {
+    display: inline-block;
+    margin-left: 10px;
+    font-size: 14px;
+    color: #606266;
+        span {
             margin-left: 10px;
         }
 }
+
 .shortcut:hover{
     color: #409EFF;
     cursor: pointer;
 }
+
 .toolbar {
     padding: 15px 10px;
     white-space: nowrap;
