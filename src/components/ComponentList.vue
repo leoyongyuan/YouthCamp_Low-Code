@@ -43,9 +43,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .item {
-      margin: 4px;
-    }
+.item {
+    margin: 4px;
+}
+
 .component-list {
     height: 65%;
     padding: 5px 5px 10px 10px;
