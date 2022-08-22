@@ -65,7 +65,6 @@ export default {
     },
     methods: {
         openLink() {
-            console.log(this.element.propValue.link)
             window.open(this.element.propValue.link)
         },
 

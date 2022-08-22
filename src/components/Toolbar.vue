@@ -70,7 +70,6 @@
                     <li>Backspace : 撤销 </li>  
                     <br>
                     <li>Delete : 撤销 </li>  
-
                 </ul>
                 <div slot="reference" class="shortcut">
                     <span class="el-icon-question"></span>
