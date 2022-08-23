@@ -2,8 +2,9 @@
     <div v-if="show" ref="container" class="bg">
         <el-button v-if="!isScreenshot" class="close" @click="close">关闭</el-button>
         <el-button v-else class="close" @click="htmlToImage">确定</el-button>
-        <el-button class="send" @click="send">发布</el-button>
-        <div class="canvas-container">
+        <el-button class="send" ref="send_btn" @click="exportHTML">发布</el-button>
+        <a ref="send_link" style="display:none"></a>
+        <div class="canvas-container" ref="publish_dom">
             <div
                 class="canvas"
                 :style="{
@@ -58,10 +59,6 @@ export default {
             this.$emit('change', false)
         },
 
-        send() {
-            this.$message.warning('开发中...')
-        },
-
         htmlToImage() {
             toPng(this.$refs.container.querySelector('.canvas'))
             .then(dataUrl => {
@@ -75,7 +72,34 @@ export default {
             })
             .finally(this.close)
         },
+
+        getDom() {
+            const temp = [
+                '<!doctype html>',
+                '<html>',
+                '<head>',
+                window.document.head.innerHTML,
+                '</head>',
+                '<body>',
+                // this.$refs.publish_dom.innerHTML,
+                // this.$refs.publish_dom.innerHTML,
+                this.$refs.container.querySelector('.canvas').innerHTML,
+                '</body>',
+                '</html>',
+            ]
+            return temp.join('')
+        },
+        exportHTML() {
+            if (this.componentData.length <= 0) return alert('发布需要有内容！')
+            const link = this.$refs.send_link
+            const url = URL.createObjectURL(new Blob([this.getDom()], { type: 'text/plain;charset="utf-8"' }))
+            link.href = url
+            link.download = 'demo.html'
+            link.click()
+            window.URL.revokeObjectURL(url)
+        },
     },
+    
 }
 </script>
 

@@ -1,5 +1,6 @@
 <template>
     <div class="attr-list">
+        <CommonAttr></CommonAttr>
         <el-form>
             <el-form-item label="倒计时内容">
                 <el-input v-model="curComponent.propValue.text" />
@@ -7,6 +8,7 @@
             <el-form-item label="开始时间">
                 <div class="block">
                     <el-date-picker
+
                         v-model="value1"
                         type="date"
                         placeholder="选择日期"
@@ -24,26 +26,18 @@
                     </el-date-picker>
                 </div>
             </el-form-item>
-            <el-form-item v-for="({ key,label }, index) in styleKeys" :key="index" :label="label">
-                <el-color-picker v-if="isIncludesColor(key)" v-model="curComponent.style[key]" show-alpha></el-color-picker>
-                <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
-                    <el-option
-                        v-for="item in optionMap[key]"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                    ></el-option>
-                </el-select>
-                <el-input v-else v-model.number="curComponent.style[key]" type="number" />
-            </el-form-item>
+
         </el-form>
     </div>
 </template>
 
 <script>
 import { styleData, textAlignOptions, borderStyleOptions, verticalAlignOptions, selectKey, optionMap } from '@/utils/attr'
+import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
+    components: { CommonAttr },
+
     data() {
         return {
             optionMap,

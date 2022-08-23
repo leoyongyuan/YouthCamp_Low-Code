@@ -1,5 +1,6 @@
 <template>
     <div class="attr-list">
+        <CommonAttr></CommonAttr>
         <el-form>
             <el-form-item label="选择图表类型">
                 <el-select v-model="value" placeholder="请选择">
@@ -39,8 +40,11 @@
 <script>
 import { styleData, textAlignOptions, borderStyleOptions, verticalAlignOptions, selectKey, optionMap } from '@/utils/attr'
 import { optionsum } from '@/custom-component/VChart/data.js'
+import CommonAttr from '@/custom-component/common/CommonAttr.vue'
 
 export default {
+    components: { CommonAttr },
+
     data() {
         return {
             optionMap,
@@ -54,13 +58,6 @@ export default {
         }
     },
     computed: {
-        styleKeys() {
-            if (this.curComponent) {
-                const curComponentStyleKeys = Object.keys(this.curComponent.style)
-                return this.styleData.filter(item => curComponentStyleKeys.includes(item.key))
-            }
-            return []
-        },
         curComponent() {
             return this.$store.state.curComponent
         },

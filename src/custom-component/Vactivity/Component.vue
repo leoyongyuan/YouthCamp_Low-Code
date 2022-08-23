@@ -29,8 +29,10 @@
 <script>
 import { mapState } from 'vuex'
 import moment from 'moment'
+import OnEvent from '../common/OnEvent'
 
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: Object,
@@ -143,9 +145,9 @@ export default {
 }
 p {
     display: inline-block;
-    background-color: #1366db;
+    // background-color: #1366db;
     border-radius: 2px;
-    color: white;
+
     font-size: 13px;
     line-height: 26px;
     width: 25px;

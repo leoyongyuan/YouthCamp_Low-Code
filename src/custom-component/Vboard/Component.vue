@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div style="border:1px solid black">
         <canvas 
             ref="canvas"
             @mousedown="Mousedown"
@@ -10,7 +10,10 @@
 </template>
 
 <script>
+import OnEvent from '../common/OnEvent'
+
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: Object,

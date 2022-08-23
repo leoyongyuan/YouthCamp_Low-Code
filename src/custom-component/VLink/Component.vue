@@ -36,8 +36,10 @@
 <script>
 import { mapState } from 'vuex'
 import { keycodes } from '@/utils/shortcutKey.js'
+import OnEvent from '../common/OnEvent'
 
 export default {
+    extends: OnEvent,
     props: {
         propValue: {
             type: Object,
