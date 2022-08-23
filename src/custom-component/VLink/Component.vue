@@ -17,7 +17,7 @@
             @dblclick="setEdit"
             @paste="clearStyle"
             @mousedown="handleMousedown"
-            @blur="handleBlur"
+            @blur="handleBlur"  
             @input="handleInput"
             v-html="element.propValue.text"
             @click="openLink"

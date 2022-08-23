@@ -84,6 +84,14 @@ const optionpie = {
                     value: 1548,
                     name: 'C',
                 },
+                {
+                    value: 111,
+                    name: 'D',
+                },
+                {
+                    value: 658,
+                    name: 'E',
+                },
             ],
             radius: ['40%', '70%'],
         },

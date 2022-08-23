@@ -29,6 +29,9 @@ export default {
         'propValue.chart': function () {
             this.changechart()
         },
+        'propValue.data': function () {
+            this.changechart()
+        },
     },
     mounted() {
         // 基于准备好的dom，初始化echarts实例
@@ -41,6 +44,7 @@ export default {
             this.echart.clear()
             let EChart = this.echart
             let option = this.optionsum[this.propValue.chart]
+            if (this.propValue.data.length > 0) option.series[0].data = this.propValue.data
             // 设置参数
             let config = {
                 ...option,

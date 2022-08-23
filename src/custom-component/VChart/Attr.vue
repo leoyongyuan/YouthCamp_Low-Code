@@ -14,6 +14,25 @@
                     </el-option>
                 </el-select>
             </el-form-item>
+            <el-form-item label="随机生成数据">
+                <el-button 
+                    plain 
+                    @click="randomData">
+                    生成数据
+                </el-button>
+            </el-form-item>
+            <el-form-item v-for="({ key,label }, index) in styleKeys" :key="index" :label="label">
+                <el-color-picker v-if="isIncludesColor(key)" v-model="curComponent.style[key]" show-alpha></el-color-picker>
+                <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
+                    <el-option
+                        v-for="item in optionMap[key]"
+                        :key="item.value"
+                        :label="item.label"
+                        :value="item.value"
+                    ></el-option>
+                </el-select>
+                <el-input v-else v-model.number="curComponent.style[key]" type="number" />
+            </el-form-item>
         </el-form>
     </div>
 </template>
@@ -50,6 +69,30 @@ export default {
 
         selectoption(chart) {
             this.curComponent.propValue.chart = chart
+        },
+        randomData() {
+            let list = this.curComponent.propValue.list
+            let curChart = null
+            let data = []
+            for (let obj of list) {
+                if (obj.name === this.value) {
+                    curChart = obj
+                    break
+                }
+            }
+            
+            let cnt = curChart.count
+            for (let i = 0; i < cnt; i++) {
+                if (this.value === '圆环图') {
+                    let name = String.fromCharCode(65 + i)
+                    let value = Math.floor(Math.random() * 100)
+                    let obj = { value, name }
+                    data.push(obj)
+                } else {
+                    data.push(Math.floor(Math.random() * 100))
+                }
+            }
+            this.curComponent.propValue.data = data
         },
     },
 }
