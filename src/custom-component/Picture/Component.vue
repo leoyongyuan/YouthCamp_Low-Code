@@ -27,7 +27,6 @@ export default {
             img: null,
             canvas: null,
             ctx: null,
-            isFirst: true,
         }
     },
     watch: {
@@ -43,6 +42,9 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
+        'propValue.url': function () {
+            this.drawImage()
+        },
     },
     mounted() {
         this.canvas = this.$refs.canvas
@@ -54,16 +56,11 @@ export default {
             const { width, height } = this.element.style
             this.canvas.width = width
             this.canvas.height = height
-            if (this.isFirst) {
-                this.isFirst = false
-                this.img = document.createElement('img')
-                this.img.src = this.propValue.url
-                this.img.onload = () => {
-                    this.ctx.drawImage(this.img, 0, 0, width, height)
-                    this.mirrorFlip()
-                }
-            } else {
-                this.mirrorFlip()
+            this.img = document.createElement('img')
+            this.img.src = this.propValue.url
+            this.img.onload = () => {
+                this.ctx.drawImage(this.img, 0, 0, width, height)
+                this.mirrorFlip()   
             }
         },
 

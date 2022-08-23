@@ -21,18 +21,6 @@
                     生成数据
                 </el-button>
             </el-form-item>
-            <el-form-item v-for="({ key,label }, index) in styleKeys" :key="index" :label="label">
-                <el-color-picker v-if="isIncludesColor(key)" v-model="curComponent.style[key]" show-alpha></el-color-picker>
-                <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
-                    <el-option
-                        v-for="item in optionMap[key]"
-                        :key="item.value"
-                        :label="item.label"
-                        :value="item.value"
-                    ></el-option>
-                </el-select>
-                <el-input v-else v-model.number="curComponent.style[key]" type="number" />
-            </el-form-item>
         </el-form>
     </div>
 </template>

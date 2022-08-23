@@ -1,6 +1,6 @@
 <template>
-    <div style="margin-top:10px">
-        <el-form ref="form" :model="form" label-width="80px">
+    <div style="margin-top: 10px;">
+        <el-form ref="form" label-width="80px">
             <el-form-item label="alert内容">
                 <el-input
                     v-model="param.content"
@@ -12,7 +12,7 @@
             <el-form-item>
                 <el-button
                     type='primary'
-                    style="width:100px"
+                    style="width: 100px;"
                     @click="addEvent(event)"
                 >确定</el-button>
             </el-form-item>

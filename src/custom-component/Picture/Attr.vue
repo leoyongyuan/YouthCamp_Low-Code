@@ -10,10 +10,7 @@
             </el-form-item>
             <el-form-item label="插入图片">
                 <div class="avatar el-icon-upload el-icon--right">
-                    <input
-                        type="file"
-                        @change="getObjectURL">
-                    上传图片
+                    <input type="file" @change="getObjectURL">上传图片
                 </div>
             </el-form-item>
         </el-form>
@@ -28,6 +25,19 @@ export default {
     computed: {
         curComponent() {
             return this.$store.state.curComponent
+        },
+    },
+    methods: {
+        getObjectURL(e) {
+            let url = null
+            if (window.createObjcectURL != undefined) {
+                url = window.createOjcectURL(e.target.files[0])
+            } else if (window.URL != undefined) {
+                url = window.URL.createObjectURL(e.target.files[0])
+            } else if (window.webkitURL != undefined) {
+                url = window.webkitURL.createObjectURL(e.target.files[0])
+            }
+            this.curComponent.propValue.url = url
         },
     },
 }
@@ -47,15 +57,12 @@ export default {
     width: 100%;
     height: 34px;
     line-height: 34px;
-    border: 1px solid #99D3F5;
+    border: 1px solid #99d3f5;
     border-radius: 4px;
     text-align: center;
     background: #409eff;
-    color:white;
+    color: white;
     cursor: pointer;
-     :hover{
-
-     }
 }
 
 .avatar input {
