@@ -17,7 +17,7 @@
             @dblclick="setEdit"
             @paste="clearStyle"
             @mousedown="handleMousedown"
-            @blur="handleBlur"
+            @blur="handleBlur"  
             @input="handleInput"
             v-html="element.propValue.text"
             @click="openLink"
@@ -63,7 +63,6 @@ export default {
     },
     methods: {
         openLink() {
-            console.log(this.element.propValue.link)
             window.open(this.element.propValue.link)
         },
 

@@ -283,6 +283,29 @@ const list = [
         label: '图表',
         propValue: {
             chart: 'optionline',
+            list: [
+                {
+                    name: '折线图',
+                    count: 5,
+                }, 
+                {
+                    name: '柱状图',
+                    count: 5,
+                },
+                {
+                    name: '圆环图',
+                    count: 5,
+                },
+                {
+                    name: '散点图',
+                    count: 7,
+                },
+                {
+                    name: '趋势图',
+                    count: 9,
+                },
+            ],
+            data: [],
         },
         icon: 'el-icon-data-analysis',
         style: {
