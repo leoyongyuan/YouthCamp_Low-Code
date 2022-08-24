@@ -1,8 +1,21 @@
 <template>
     <div v-if="show" ref="container" class="bg">
-        <el-button v-if="!isScreenshot" class="close" @click="close">关闭</el-button>
-        <el-button v-else class="close" @click="htmlToImage">确定</el-button>
-        <el-button ref="send_btn" class="send" @click="exportHTML">发布</el-button>
+        <el-button class="close" @click="close">关闭</el-button>
+        <el-button 
+            v-if="isScreenshot" 
+            class="screenshot" 
+            @click="htmlToImage" 
+            type="primary">
+            确定
+        </el-button>
+        <el-button 
+            ref="send_btn" 
+            class="send"
+            @click="exportHTML" 
+            type="primary"
+            v-else>
+            发布
+        </el-button>
         <a ref="send_link" style="display: none;"></a>
         <div class="canvas-container">
             <div
@@ -29,6 +42,7 @@ import { mapState } from 'vuex'
 import ComponentWrapper from './ComponentWrapper'
 import { changeStyleWithScale } from '@/utils/translate'
 import { toPng } from 'html-to-image'
+import getDom from '@/utils/getDom'
 
 export default {
     components: { ComponentWrapper },
@@ -49,17 +63,20 @@ export default {
     computed: mapState([
         'componentData',
         'canvasStyleData',
+        'curComponent',
     ]),
     methods: {
         getStyle,
         getCanvasStyle,
         changeStyleWithScale,
-
+        getDom,
+        
         close() {
             this.$emit('change', false)
         },
 
         htmlToImage() {
+            console.log(this.componentData)
             toPng(this.$refs.container.querySelector('.canvas'))
             .then(dataUrl => {
                 const a = document.createElement('a')
@@ -72,21 +89,7 @@ export default {
             })
             .finally(this.close)
         },
-
-        getDom() {
-            const temp = [
-                '<!doctype html>',
-                '<html>',
-                '<head>',
-                window.document.head.innerHTML,
-                '</head>',
-                '<body>',
-                this.$refs.container.querySelector('.canvas').innerHTML,
-                '</body>',
-                '</html>',
-            ]
-            return temp.join('')
-        },
+        
         exportHTML() {
             if (this.componentData.length <= 0) return alert('发布需要有内容！')
             this.$confirm('确认发布', '提示', {
@@ -142,7 +145,8 @@ export default {
         top: 20px;
     }
 
-    .send {
+    .send,
+    .screenshot {
         position: absolute;
         right: 100px;
         top: 20px;

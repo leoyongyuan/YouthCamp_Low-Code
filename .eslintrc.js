@@ -77,6 +77,7 @@ module.exports = {
               max: 1,
             }
         }],
-        'no-return-assign': 'off'
+        'no-return-assign': 'off',
+        'no-useless-escape': 'off'
     },
 };
