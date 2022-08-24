@@ -2,7 +2,7 @@
     <div v-if="show" ref="container" class="bg">
         <el-button v-if="!isScreenshot" class="close" @click="close">关闭</el-button>
         <el-button v-else class="close" @click="htmlToImage">确定</el-button>
-        <el-button class="send" ref="send_btn" @click="exportHTML">发布</el-button>
+        <el-button ref="send_btn" class="send" @click="exportHTML">发布</el-button>
         <a ref="send_link" style="display: none;"></a>
         <div class="canvas-container">
             <div
@@ -89,12 +89,20 @@ export default {
         },
         exportHTML() {
             if (this.componentData.length <= 0) return alert('发布需要有内容！')
-            const link = this.$refs.send_link
-            const url = URL.createObjectURL(new Blob([this.getDom()], { type: 'text/plain;charset="utf-8"' }))
-            link.href = url
-            link.download = 'Publish.html'
-            link.click()
-            window.URL.revokeObjectURL(url)
+            this.$confirm('确认发布', '提示', {
+                type: 'warning',
+                confirmButtonText: '确认',
+                cancelButtonText: '取消',
+            }).then(res => {
+                if (res == 'confirm') {
+                    const link = this.$refs.send_link
+                    const url = URL.createObjectURL(new Blob([this.getDom()], { type: 'text/plain;charset="utf-8"' }))
+                    link.href = url
+                    link.download = 'Publish.html'
+                    link.click()
+                    window.URL.revokeObjectURL(url)
+                }
+            }).catch(err => err)
         },
     },
     
