@@ -97,7 +97,7 @@ export default {
                 confirmButtonText: '确认',
                 cancelButtonText: '取消',
             }).then(res => {
-                if (res == 'confirm') {
+                if (res === 'confirm') {
                     const link = this.$refs.send_link
                     const url = URL.createObjectURL(new Blob([this.getDom()], { type: 'text/plain;charset="utf-8"' }))
                     link.href = url
