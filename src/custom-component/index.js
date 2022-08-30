@@ -4,7 +4,7 @@ const components = [
     'Picture',
     'VText',
     'VButton',
-    'VTable',
+    // 'VTable',
     'VLink',
     'Vactivity',
     'Video',
