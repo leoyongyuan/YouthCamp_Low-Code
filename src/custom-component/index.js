@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 const components = [
     'Picture',
-    'VText',
+    // 'VText',
     'VButton',
     // 'VTable',
     'VLink',
