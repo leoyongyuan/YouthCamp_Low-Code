@@ -33,11 +33,3 @@ npm run dev
 ```
 npm run build
 ```
-
-
-
-### ❤鸣谢
-
-项目灵感来自[woai3c大佬](https://github.com/woai3c)的 [visual-drag-demo](https://github.com/woai3c/visual-drag-demo)，加之团队成员创新。
-
-此次开发或许可以为这个项目添加一些有趣的东西，这是一次不错的体验！
